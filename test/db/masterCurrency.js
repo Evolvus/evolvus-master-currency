@@ -198,154 +198,187 @@ describe("db masterCurrency testing", () => {
     });
   });
 
-  // describe("testing roleMenuItemMap.find without data", () => {
-  //   // delete all records
-  //   // find should return empty array
-  //   beforeEach((done) => {
-  //     masterCurrency.deleteAll()
-  //       .then((res) => {
-  //         done();
-  //       });
-  //   });
-  //
-  //   it("should return empty array i.e. []", (done) => {
-  //     let res = masterCurrency.findAll(2);
-  //     expect(res)
-  //       .to.be.fulfilled.then((docs) => {
-  //         expect(docs)
-  //           .to.be.a('array');
-  //         expect(docs.length)
-  //           .to.equal(0);
-  //         expect(docs)
-  //           .to.eql([]);
-  //         done();
-  //       }, (err) => {
-  //         done(err);
-  //       })
-  //       .catch((e) => {
-  //         done(e);
-  //       });
-  //   });
-  // });
-  //
-  // describe("testing masterCurrency.findById", () => {
-  //   // Delete all records, insert one record , get its id
-  //   // 1. Query by this id and it should return one masterCurrency
-  //   // 2. Query by an arbitrary id and it should return {}
-  //   // 3. Query with null id and it should throw IllegalArgumentException
-  //   // 4. Query with undefined and it should throw IllegalArgumentException
-  //   // 5. Query with arbitrary object
-  //   let testObject = {
-  //     //add a valid masterCurrency object
-  //
-  //   };
-  //   var id;
-  //   beforeEach((done) => {
-  //     masterCurrency.deleteAll()
-  //       .then((res) => {
-  //         masterCurrency.save(testObject)
-  //           .then((savedObj) => {
-  //             id = savedObj._id;
-  //             done();
-  //           });
-  //       });
-  //   });
-  //
-  //   it("should return masterCurrency identified by Id ", (done) => {
-  //     let res = masterCurrency.findById(id);
-  //     expect(res)
-  //       .to.eventually.include(testObject)
-  //       .notify(done);
-  //   });
-  //
-  //   it("should return null as no masterCurrency is identified by this Id ", (done) => {
-  //     let badId = new mongoose.mongo.ObjectId();
-  //     let res = masterCurrency.findById(badId);
-  //     expect(res)
-  //       .to.eventually.to.eql(null)
-  //       .notify(done);
-  //   });
-  // });
-  //
-  // describe("testing masterCurrency.findOne", () => {
-  //   // Delete all records, insert two record
-  //   // 1. Query by one attribute and it should return one masterCurrency
-  //   // 2. Query by an arbitrary attribute value and it should return {}
-  //
-  //   // delete all records and insert two masterCurrencys
-  //   beforeEach((done) => {
-  //     masterCurrency.deleteAll()
-  //       .then((res) => {
-  //         masterCurrency.save(object1)
-  //           .then((res) => {
-  //             masterCurrency.save(object2)
-  //               .then((savedObj) => {
-  //                 done();
-  //               });
-  //           });
-  //       });
-  //   });
-  //
-  //   it("should return object for valid attribute value", (done) => {
-  //     // take one valid attribute and its value
-  //     let attributename = "";
-  //     let attributeValue = "";
-  //     let res = masterCurrency.findOne(attributename, attributeValue);
-  //     expect(res)
-  //       .to.eventually.include(object1)
-  //       .notify(done);
-  //   });
-  //
-  //   it("should return null as no masterCurrency is identified by this attribute ", (done) => {
-  //     let res = masterCurrency.findOne(validAttribute, invalidValue);
-  //     expect(res)
-  //       .to.eventually.to.eql(null)
-  //       .notify(done);
-  //   });
-  // });
-  //
-  // describe("testing masterCurrency.findMany", () => {
-  //   // Delete all records, insert two record
-  //   // 1. Query by one attribute and it should return all masterCurrencys having attribute value
-  //   // 2. Query by an arbitrary attribute value and it should return {}
-  //   let masterCurrency1 = {
-  //     //add valid object
-  //
-  //   };
-  //   let masterCurrency2 = {
-  //     //add valid object with one attribute value same as "masterCurrency1"
-  //
-  //   };
-  //   // delete all records and insert two masterCurrencys
-  //   beforeEach((done) => {
-  //     masterCurrency.deleteAll()
-  //       .then((res) => {
-  //         masterCurrency.save(masterCurrency1)
-  //           .then((res) => {
-  //             masterCurrency.save(masterCurrency2)
-  //               .then((savedObj) => {
-  //                 done();
-  //               });
-  //           });
-  //       });
-  //   });
-  //
-  //   it("should return array of objects for valid attribute value", (done) => {
-  //     // take one valid attribute and its value
-  //     let attributename = "";
-  //     let attributeValue = "";
-  //     let res = masterCurrency.findMany(attributename, attributeValue);
-  //     expect(res).to.eventually.be.a("array");
-  //     //enter proper length according to input attribute
-  //     expect(res).to.eventually.have.length(1);
-  //     done();
-  //   });
-  //
-  //   it("should return empty array as no masterCurrency is identified by this attribute ", (done) => {
-  //     let res = masterCurrency.findMany(validAttribute, invalidValue);
-  //     expect(res)
-  //       .to.eventually.to.eql([])
-  //       .notify(done);
-  //   });
-  // });
+  describe("testing roleMenuItemMap.find without data", () => {
+    // delete all records
+    // find should return empty array
+    beforeEach((done) => {
+      masterCurrency.deleteAll()
+        .then((res) => {
+          done();
+        });
+    });
+
+    it("should return empty array i.e. []", (done) => {
+      let res = masterCurrency.findAll(2);
+      expect(res)
+        .to.be.fulfilled.then((docs) => {
+          expect(docs)
+            .to.be.a('array');
+          expect(docs.length)
+            .to.equal(0);
+          expect(docs)
+            .to.eql([]);
+          done();
+        }, (err) => {
+          done(err);
+        })
+        .catch((e) => {
+          done(e);
+        });
+    });
+  });
+
+  describe("testing masterCurrency.findById", () => {
+    // Delete all records, insert one record , get its id
+    // 1. Query by this id and it should return one masterCurrency
+    // 2. Query by an arbitrary id and it should return {}
+    // 3. Query with null id and it should throw IllegalArgumentException
+    // 4. Query with undefined and it should throw IllegalArgumentException
+    // 5. Query with arbitrary object
+    let testObject = {
+      //add a valid masterCurrency object
+      "tenantId": "testId4",
+      "currencyCode": "testcect4",
+      "currencyName": "testtenR",
+      "decimalDigit": "3",
+      "delimiter": "2",
+      "createdDate": new Date().toISOString(),
+      "lastUpdatedDate": new Date().toISOString(),
+      "createdBy": "SYSTEM",
+      "updatedBy": "SYSTEM",
+      "objVersion": 123,
+      "enabledFlag": "1",
+      "currencyLocale": "BANK"
+    };
+    var id;
+    beforeEach((done) => {
+      masterCurrency.deleteAll()
+        .then((res) => {
+          masterCurrency.save(testObject)
+            .then((savedObj) => {
+              id = savedObj._id;
+              done();
+            });
+        });
+    });
+
+    it("should return masterCurrency identified by Id ", (done) => {
+      let res = masterCurrency.findById(id);
+      expect(res)
+        .to.eventually.include(testObject)
+        .notify(done);
+    });
+
+    it("should return null as no masterCurrency is identified by this Id ", (done) => {
+      let badId = new mongoose.mongo.ObjectId();
+      let res = masterCurrency.findById(badId);
+      expect(res)
+        .to.eventually.to.eql(null)
+        .notify(done);
+    });
+  });
+
+  describe("testing masterCurrency.findOne", () => {
+    // Delete all records, insert two record
+    // 1. Query by one attribute and it should return one masterCurrency
+    // 2. Query by an arbitrary attribute value and it should return {}
+
+    // delete all records and insert two masterCurrencys
+    beforeEach((done) => {
+      masterCurrency.deleteAll()
+        .then((res) => {
+          masterCurrency.save(object1)
+            .then((res) => {
+              masterCurrency.save(object2)
+                .then((savedObj) => {
+                  done();
+                });
+            });
+        });
+    });
+
+    it("should return object for valid attribute value", (done) => {
+      // take one valid attribute and its value
+      let attributename = "currencyCode";
+      let attributeValue = "cu123";
+      let res = masterCurrency.findOne(attributename, attributeValue);
+      expect(res)
+        .to.eventually.include(object1)
+        .notify(done);
+    });
+
+    it("should return null as no masterCurrency is identified by this attribute ", (done) => {
+      let res = masterCurrency.findOne(`currencyCode`, `cxd`);
+      expect(res)
+        .to.eventually.to.eql(null)
+        .notify(done);
+    });
+  });
+
+  describe("testing masterCurrency.findMany", () => {
+    // Delete all records, insert two record
+    // 1. Query by one attribute and it should return all masterCurrencys having attribute value
+    // 2. Query by an arbitrary attribute value and it should return {}
+    let masterCurrency1 = {
+      //add valid object
+      "tenantId": "Currency1Id4",
+      "currencyCode": "Currency14",
+      "currencyName": "Currency1",
+      "decimalDigit": "3",
+      "delimiter": "2",
+      "createdDate": new Date().toISOString(),
+      "lastUpdatedDate": new Date().toISOString(),
+      "createdBy": "SYSTEM",
+      "updatedBy": "SYSTEM",
+      "objVersion": 123,
+      "enabledFlag": "1",
+      "currencyLocale": "BANK"
+    };
+    let masterCurrency2 = {
+      //add valid object with one attribute value same as "masterCurrency1"
+      "tenantId": "Currency2",
+      "currencyCode": "Currency2",
+      "currencyName": "Currency2tenR",
+      "decimalDigit": "3",
+      "delimiter": "2",
+      "createdDate": new Date().toISOString(),
+      "lastUpdatedDate": new Date().toISOString(),
+      "createdBy": "SYSTEM",
+      "updatedBy": "SYSTEM",
+      "objVersion": 123,
+      "enabledFlag": "1",
+      "currencyLocale": "BANK"
+    };
+    // delete all records and insert two masterCurrencys
+    beforeEach((done) => {
+      masterCurrency.deleteAll()
+        .then((res) => {
+          masterCurrency.save(masterCurrency1)
+            .then((res) => {
+              masterCurrency.save(masterCurrency2)
+                .then((savedObj) => {
+                  done();
+                });
+            });
+        });
+    });
+
+    it("should return array of objects for valid attribute value", (done) => {
+      // take one valid attribute and its value
+      let attributename = "currencyCode";
+      let attributeValue = "Currency2";
+      let res = masterCurrency.findMany(attributename, attributeValue);
+      expect(res).to.eventually.be.a("array");
+      //enter proper length according to input attribute
+      expect(res).to.eventually.have.length(1);
+      done();
+    });
+
+    it("should return empty array as no masterCurrency is identified by this attribute ", (done) => {
+      let res = masterCurrency.findMany(`currencyCode`, `wer`);
+      expect(res)
+        .to.eventually.to.eql([])
+        .notify(done);
+    });
+  });
 });

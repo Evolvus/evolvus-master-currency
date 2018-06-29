@@ -54,7 +54,8 @@ var masterCurrencySchema = new mongoose.Schema({
   },
   enabledFlag: {
     type: String,
-    enum: ["0", "1"]
+    enum: ["0", "1"],
+    default: "1"
   },
   currencyLocale: {
     type: String

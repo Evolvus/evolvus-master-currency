@@ -53,6 +53,7 @@ module.exports.schema = {
     },
     "enabledFlag": {
       "type": "string",
+      "default": "1",
       "enum": ["0", "1"]
     },
     "currencyLocale": {

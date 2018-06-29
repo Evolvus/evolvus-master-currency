@@ -21,7 +21,7 @@ describe('masterCurrency model validation', () => {
   let masterCurrencyObject = {
     // add a valid masterCurrency Object here
     "tenantId": "tenIdmasteCurr",
-    "currencyCode": "money",
+    "currencyCode": "de894",
     "currencyName": "RUPEESIndia",
     "decimalDigit": "4",
     "delimiter": "8",
@@ -302,263 +302,309 @@ describe('masterCurrency model validation', () => {
     });
   });
 
-  // describe('testing getById', () => {
-  //   // Insert one record , get its id
-  //   // 1. Query by this id and it should return one masterCurrency object
-  //   // 2. Query by an arbitrary id and it should return {}
-  //   // 3. Query with null id and it should throw IllegalArgumentException
-  //   // 4. Query with undefined and it should throw IllegalArgumentException
-  //   var id;
-  //   beforeEach((done) => {
-  //     db.save(masterCurrencyObject).then((res) => {
-  //       id = res._id;
-  //       done();
-  //     });
-  //   });
-  //
-  //   it('should return one masterCurrency matching parameter id', (done) => {
-  //     try {
-  //       var res = masterCurrency.getById(id);
-  //       expect(res).to.eventually.have.property('_id')
-  //         .to.eql(id)
-  //         .notify(done);
-  //     } catch (e) {
-  //       expect.fail(e, null, `exception: ${e}`);
-  //     }
-  //   });
-  //
-  //   it('should return empty object i.e. {} as no masterCurrency is identified by this Id ', (done) => {
-  //     try {
-  //       let badId = new mongoose.mongo.ObjectId();
-  //       var res = masterCurrency.getById(badId);
-  //       expect(res).to.eventually.to.eql({})
-  //         .notify(done);
-  //     } catch (e) {
-  //       expect.fail(e, null, `exception: ${e}`);
-  //     }
-  //   });
-  //
-  //   it("should throw IllegalArgumentException for undefined Id parameter ", (done) => {
-  //     try {
-  //       let undefinedId;
-  //       let res = masterCurrency.getById(undefinedId);
-  //       expect(res)
-  //         .to.eventually.to.be.rejectedWith("IllegalArgumentException")
-  //         .notify(done);
-  //     } catch (e) {
-  //       expect.fail(e, null, `exception: ${e}`);
-  //     }
-  //   });
-  //
-  //   it("should throw IllegalArgumentException for null Id parameter ", (done) => {
-  //     try {
-  //       let res = masterCurrency.getById(null);
-  //       expect(res)
-  //         .to.eventually.to.be.rejectedWith("IllegalArgumentException")
-  //         .notify(done);
-  //     } catch (e) {
-  //       expect.fail(e, null, `exception: ${e}`);
-  //     }
-  //   });
-  //
-  //   it("should be rejected for arbitrary object as Id parameter ", (done) => {
-  //     // an id is a 12 byte string, -1 is an invalid id value
-  //     let id = masterCurrencyObject;
-  //     let res = masterCurrency.getById(id);
-  //     expect(res)
-  //       .to.eventually.to.be.rejectedWith("must be a single String of 12 bytes")
-  //       .notify(done);
-  //   });
-  //
-  // });
-  //
-  // describe("testing masterCurrency.getOne", () => {
-  //   let object1 = {
-  //       //add one valid masterCurrency object here
-  //
-  //     },
-  //     object2 = {
-  //       //add one more valid masterCurrency object here
-  //
-  //     };
-  //   beforeEach((done) => {
-  //     db.deleteAll().then((res) => {
-  //       db.save(object1).then((res) => {
-  //         db.save(object2).then((res) => {
-  //           done();
-  //         });
-  //       });
-  //     });
-  //   });
-  //
-  //   it("should return one masterCurrency record identified by attribute", (done) => {
-  //     try {
-  //       // take one attribute from object1 or object2 and its value
-  //       let res = masterCurrency.getOne(attribute of object1 / object2, its value);
-  //       expect(res)
-  //         .to.eventually.be.a("object")
-  //         .to.have.property('attribute of object1/object2')
-  //         .to.eql('attribute value')
-  //         .notify(done);
-  //     } catch (e) {
-  //       expect.fail(e, null, `exception: ${e}`);
-  //     }
-  //   });
-  //
-  //   it('should return empty object i.e. {} as no masterCurrency is identified by this attribute', (done) => {
-  //     try {
-  //       // replace validAttribute and add a bad value to it
-  //       var res = masterCurrency.getOne(validAttribute, badValue);
-  //       expect(res).to.eventually.to.eql({})
-  //         .notify(done);
-  //     } catch (e) {
-  //       expect.fail(e, null, `exception: ${e}`);
-  //     }
-  //   });
-  //
-  //   it("should throw IllegalArgumentException for undefined Attribute parameter ", (done) => {
-  //     try {
-  //       //replace validvalue with a valid value for an attribute
-  //       let undefinedAttribute;
-  //       let res = masterCurrency.getOne(undefinedAttribute, validValue);
-  //       expect(res)
-  //         .to.eventually.to.be.rejectedWith("IllegalArgumentException")
-  //         .notify(done);
-  //     } catch (e) {
-  //       expect.fail(e, null, `exception: ${e}`);
-  //     }
-  //   });
-  //
-  //   it("should throw IllegalArgumentException for undefined Attribute parameter ", (done) => {
-  //     try {
-  //       // replace validAttribute with a valid attribute name
-  //       let undefinedValue;
-  //       let res = masterCurrency.getOne(validAttribute, undefinedValue);
-  //       expect(res)
-  //         .to.eventually.to.be.rejectedWith("IllegalArgumentException")
-  //         .notify(done);
-  //     } catch (e) {
-  //       expect.fail(e, null, `exception: ${e}`);
-  //     }
-  //   });
-  //
-  //   it("should throw IllegalArgumentException for null attribute parameter ", (done) => {
-  //     try {
-  //       //replace validValue with a valid value for an attribute
-  //       let res = masterCurrency.getOne(null, validValue);
-  //       expect(res)
-  //         .to.eventually.to.be.rejectedWith("IllegalArgumentException")
-  //         .notify(done);
-  //     } catch (e) {
-  //       expect.fail(e, null, `exception: ${e}`);
-  //     }
-  //   });
-  //
-  //   it("should throw IllegalArgumentException for null value parameter ", (done) => {
-  //     try {
-  //       //replace attributeValue with a valid attribute name
-  //       let res = masterCurrency.getOne(attributeValue, null);
-  //       expect(res)
-  //         .to.eventually.to.be.rejectedWith("IllegalArgumentException")
-  //         .notify(done);
-  //     } catch (e) {
-  //       expect.fail(e, null, `exception: ${e}`);
-  //     }
-  //   });
-  // });
-  //
-  //
-  // describe("testing masterCurrency.getMany", () => {
-  //   let object1 = {
-  //       //add one valid masterCurrency object here
-  //
-  //     },
-  //     object2 = {
-  //       //add one more valid masterCurrency object here
-  //
-  //     };
-  //   beforeEach((done) => {
-  //     db.deleteAll().then((res) => {
-  //       db.save(object1).then((res) => {
-  //         db.save(object2).then((res) => {
-  //           done();
-  //         });
-  //       });
-  //     });
-  //   });
-  //
-  //   it("should return array of masterCurrency records identified by attribute", (done) => {
-  //     try {
-  //       // take one attribute from object1 or object2 and its value
-  //       let res = masterCurrency.getMany(attribute of object1 / object2, its value);
-  //       expect(res).to.eventually.be.a("array");
-  //       //enter proper length according to input value
-  //       expect(res).to.eventually.have.length(1);
-  //       done();
-  //     } catch (e) {
-  //       expect.fail(e, null, `exception: ${e}`);
-  //     }
-  //   });
-  //
-  //   it('should return empty array i.e. [] as no masterCurrency is identified by this attribute', (done) => {
-  //     try {
-  //       // replace validAttribute and add a bad value to it
-  //       var res = masterCurrency.getMany(validAttribute, badValue);
-  //       expect(res).to.eventually.to.eql([])
-  //         .notify(done);
-  //     } catch (e) {
-  //       expect.fail(e, null, `exception: ${e}`);
-  //     }
-  //   });
-  //
-  //   it("should throw IllegalArgumentException for undefined Attribute parameter ", (done) => {
-  //     try {
-  //       //replace validvalue with a valid value for an attribute
-  //       let undefinedAttribute;
-  //       let res = masterCurrency.getMany(undefinedAttribute, validValue);
-  //       expect(res)
-  //         .to.eventually.to.be.rejectedWith("IllegalArgumentException")
-  //         .notify(done);
-  //     } catch (e) {
-  //       expect.fail(e, null, `exception: ${e}`);
-  //     }
-  //   });
-  //
-  //   it("should throw IllegalArgumentException for undefined Attribute parameter ", (done) => {
-  //     try {
-  //       // replace validAttribute with a valid attribute name
-  //       let undefinedValue;
-  //       let res = masterCurrency.getMany(validAttribute, undefinedValue);
-  //       expect(res)
-  //         .to.eventually.to.be.rejectedWith("IllegalArgumentException")
-  //         .notify(done);
-  //     } catch (e) {
-  //       expect.fail(e, null, `exception: ${e}`);
-  //     }
-  //   });
-  //
-  //   it("should throw IllegalArgumentException for null attribute parameter ", (done) => {
-  //     try {
-  //       //replace validValue with a valid value for an attribute
-  //       let res = masterCurrency.getMany(null, validValue);
-  //       expect(res)
-  //         .to.eventually.to.be.rejectedWith("IllegalArgumentException")
-  //         .notify(done);
-  //     } catch (e) {
-  //       expect.fail(e, null, `exception: ${e}`);
-  //     }
-  //   });
-  //
-  //   it("should throw IllegalArgumentException for null value parameter ", (done) => {
-  //     try {
-  //       //replace attributeValue with a valid attribute name
-  //       let res = masterCurrency.getMany(attributeValue, null);
-  //       expect(res)
-  //         .to.eventually.to.be.rejectedWith("IllegalArgumentException")
-  //         .notify(done);
-  //     } catch (e) {
-  //       expect.fail(e, null, `exception: ${e}`);
-  //     }
-  //   });
-  // });
+  describe('testing getById', () => {
+    // Insert one record , get its id
+    // 1. Query by this id and it should return one masterCurrency object
+    // 2. Query by an arbitrary id and it should return {}
+    // 3. Query with null id and it should throw IllegalArgumentException
+    // 4. Query with undefined and it should throw IllegalArgumentException
+    var id;
+    beforeEach((done) => {
+      db.deleteAll().then((res) => {
+        db.save(masterCurrencyObject).then((res) => {
+          id = res._id;
+          done();
+        });
+      });
+    });
+
+    it('should return one masterCurrency matching parameter id', (done) => {
+      try {
+        var res = masterCurrency.getById(id);
+        expect(res).to.eventually.have.property('_id')
+          .to.eql(id)
+          .notify(done);
+      } catch (e) {
+        expect.fail(e, null, `exception: ${e}`);
+      }
+    });
+
+    it('should return empty object i.e. {} as no masterCurrency is identified by this Id ', (done) => {
+      try {
+        let badId = new mongoose.mongo.ObjectId();
+        var res = masterCurrency.getById(badId);
+        expect(res).to.eventually.to.eql({})
+          .notify(done);
+      } catch (e) {
+        expect.fail(e, null, `exception: ${e}`);
+      }
+    });
+
+    it("should throw IllegalArgumentException for undefined Id parameter ", (done) => {
+      try {
+        let undefinedId;
+        let res = masterCurrency.getById(undefinedId);
+        expect(res)
+          .to.eventually.to.be.rejectedWith("IllegalArgumentException")
+          .notify(done);
+      } catch (e) {
+        expect.fail(e, null, `exception: ${e}`);
+      }
+    });
+
+    it("should throw IllegalArgumentException for null Id parameter ", (done) => {
+      try {
+        let res = masterCurrency.getById(null);
+        expect(res)
+          .to.eventually.to.be.rejectedWith("IllegalArgumentException")
+          .notify(done);
+      } catch (e) {
+        expect.fail(e, null, `exception: ${e}`);
+      }
+    });
+
+    it("should be rejected for arbitrary object as Id parameter ", (done) => {
+      // an id is a 12 byte string, -1 is an invalid id value
+      let id = masterCurrencyObject;
+      let res = masterCurrency.getById(id);
+      expect(res)
+        .to.eventually.to.be.rejectedWith("must be a single String of 12 bytes")
+        .notify(done);
+    });
+
+  });
+
+  describe("testing masterCurrency.getOne", () => {
+    let object1 = {
+        //add one valid masterCurrency object here
+        "tenantId": "tenIdmasteobjo",
+        "currencyCode": "moneyobjo",
+        "currencyName": "RUPEESIndiaobjo",
+        "decimalDigit": "4",
+        "delimiter": "8",
+        "createdDate": new Date().toISOString(),
+        "lastUpdatedDate": new Date().toISOString(),
+        "createdBy": "SYSTEM",
+        "updatedBy": "SYSTEM",
+        "objVersion": 123,
+        "enabledFlag": "1",
+        "currencyLocale": "BANGALORE"
+      },
+      object2 = {
+        //add one more valid masterCurrency object here
+        "tenantId": "tenIdmasteobjt",
+        "currencyCode": "moneyobjt",
+        "currencyName": "RUPEESIndiaobjt",
+        "decimalDigit": "4",
+        "delimiter": "8",
+        "createdDate": new Date().toISOString(),
+        "lastUpdatedDate": new Date().toISOString(),
+        "createdBy": "SYSTEM",
+        "updatedBy": "SYSTEM",
+        "objVersion": 123,
+        "enabledFlag": "1",
+        "currencyLocale": "BANGALORE"
+      };
+    beforeEach((done) => {
+      db.deleteAll().then((res) => {
+        db.save(object1).then((res) => {
+          db.save(object2).then((res) => {
+            done();
+          });
+        });
+      });
+    });
+
+    it("should return one masterCurrency record identified by attribute", (done) => {
+      try {
+        // take one attribute from object1 or object2 and its value
+        let res = masterCurrency.getOne(`currencyCode`, `moneyobjt`);
+        expect(res)
+          .to.eventually.be.a("object")
+          .to.have.property(`currencyCode`)
+          .to.eql(`moneyobjt`)
+          .notify(done);
+      } catch (e) {
+        expect.fail(e, null, `exception: ${e}`);
+      }
+    });
+
+    it('should return empty object i.e. {} as no masterCurrency is identified by this attribute', (done) => {
+      try {
+        // replace validAttribute and add a bad value to it
+        var res = masterCurrency.getOne(`currencyCode`, `cur`);
+        expect(res).to.eventually.to.eql({})
+          .notify(done);
+      } catch (e) {
+        expect.fail(e, null, `exception: ${e}`);
+      }
+    });
+
+    it("should throw IllegalArgumentException for undefined Attribute parameter ", (done) => {
+      try {
+        //replace validvalue with a valid value for an attribute
+        let undefinedAttribute;
+        let res = masterCurrency.getOne(undefinedAttribute, `moneyobjt`);
+        expect(res)
+          .to.eventually.to.be.rejectedWith("IllegalArgumentException")
+          .notify(done);
+      } catch (e) {
+        expect.fail(e, null, `exception: ${e}`);
+      }
+    });
+
+    it("should throw IllegalArgumentException for undefined Attribute parameter ", (done) => {
+      try {
+        // replace validAttribute with a valid attribute name
+        let undefinedValue;
+        let res = masterCurrency.getOne(`currencyCode`, undefinedValue);
+        expect(res)
+          .to.eventually.to.be.rejectedWith("IllegalArgumentException")
+          .notify(done);
+      } catch (e) {
+        expect.fail(e, null, `exception: ${e}`);
+      }
+    });
+
+    it("should throw IllegalArgumentException for null attribute parameter ", (done) => {
+      try {
+        //replace validValue with a valid value for an attribute
+        let res = masterCurrency.getOne(null, `moneyobjt`);
+        expect(res)
+          .to.eventually.to.be.rejectedWith("IllegalArgumentException")
+          .notify(done);
+      } catch (e) {
+        expect.fail(e, null, `exception: ${e}`);
+      }
+    });
+
+    it("should throw IllegalArgumentException for null value parameter ", (done) => {
+      try {
+        //replace attributeValue with a valid attribute name
+        let res = masterCurrency.getOne(`currencyCode`, null);
+        expect(res)
+          .to.eventually.to.be.rejectedWith("IllegalArgumentException")
+          .notify(done);
+      } catch (e) {
+        expect.fail(e, null, `exception: ${e}`);
+      }
+    });
+  });
+
+
+  describe("testing masterCurrency.getMany", () => {
+    let object1 = {
+        //add one valid masterCurrency object here
+        "tenantId": "tenIdmasteobjt1",
+        "currencyCode": "moneyobjt1",
+        "currencyName": "RUPEESIndiaobjt1",
+        "decimalDigit": "4",
+        "delimiter": "8",
+        "createdDate": new Date().toISOString(),
+        "lastUpdatedDate": new Date().toISOString(),
+        "createdBy": "SYSTEM",
+        "updatedBy": "SYSTEM",
+        "objVersion": 123,
+        "enabledFlag": "1",
+        "currencyLocale": "BANGALORE"
+      },
+      object2 = {
+        //add one more valid masterCurrency object here
+        "tenantId": "tenIdmasteobjt2",
+        "currencyCode": "moneyobjt2",
+        "currencyName": "RUPEESIndiaobjt2",
+        "decimalDigit": "4",
+        "delimiter": "8",
+        "createdDate": new Date().toISOString(),
+        "lastUpdatedDate": new Date().toISOString(),
+        "createdBy": "SYSTEM",
+        "updatedBy": "SYSTEM",
+        "objVersion": 123,
+        "enabledFlag": "1",
+        "currencyLocale": "BANGALORE"
+      };
+    beforeEach((done) => {
+      db.deleteAll().then((res) => {
+        db.save(object1).then((res) => {
+          db.save(object2).then((res) => {
+            done();
+          });
+        });
+      });
+    });
+
+    it("should return array of masterCurrency records identified by attribute", (done) => {
+      try {
+        // take one attribute from object1 or object2 and its value
+        let res = masterCurrency.getMany(`currencyCode`, `moneyobjt2`);
+        expect(res).to.eventually.be.a("array");
+        //enter proper length according to input value
+        expect(res).to.eventually.have.length(1);
+        done();
+      } catch (e) {
+        expect.fail(e, null, `exception: ${e}`);
+      }
+    });
+
+    it('should return empty array i.e. [] as no masterCurrency is identified by this attribute', (done) => {
+      try {
+        // replace validAttribute and add a bad value to it
+        var res = masterCurrency.getMany(`currencyCode`, `cu`);
+        expect(res).to.eventually.to.eql([])
+          .notify(done);
+      } catch (e) {
+        expect.fail(e, null, `exception: ${e}`);
+      }
+    });
+
+    it("should throw IllegalArgumentException for undefined Attribute parameter ", (done) => {
+      try {
+        //replace validvalue with a valid value for an attribute
+        let undefinedAttribute;
+        let res = masterCurrency.getMany(undefinedAttribute, `moneyobjt2`);
+        expect(res)
+          .to.eventually.to.be.rejectedWith("IllegalArgumentException")
+          .notify(done);
+      } catch (e) {
+        expect.fail(e, null, `exception: ${e}`);
+      }
+    });
+
+    it("should throw IllegalArgumentException for undefined Attribute parameter ", (done) => {
+      try {
+        // replace validAttribute with a valid attribute name
+        let undefinedValue;
+        let res = masterCurrency.getMany(`currencyCode`, undefinedValue);
+        expect(res)
+          .to.eventually.to.be.rejectedWith("IllegalArgumentException")
+          .notify(done);
+      } catch (e) {
+        expect.fail(e, null, `exception: ${e}`);
+      }
+    });
+
+    it("should throw IllegalArgumentException for null attribute parameter ", (done) => {
+      try {
+        //replace validValue with a valid value for an attribute
+        let res = masterCurrency.getMany(null, `moneyobjt2`);
+        expect(res)
+          .to.eventually.to.be.rejectedWith("IllegalArgumentException")
+          .notify(done);
+      } catch (e) {
+        expect.fail(e, null, `exception: ${e}`);
+      }
+    });
+
+    it("should throw IllegalArgumentException for null value parameter ", (done) => {
+      try {
+        //replace attributeValue with a valid attribute name
+        let res = masterCurrency.getMany(`currencyCode`, null);
+        expect(res)
+          .to.eventually.to.be.rejectedWith("IllegalArgumentException")
+          .notify(done);
+      } catch (e) {
+        expect.fail(e, null, `exception: ${e}`);
+      }
+    });
+  });
 });
