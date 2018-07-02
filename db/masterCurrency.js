@@ -7,6 +7,9 @@ const masterCurrencySchema = require("./masterCurrencySchema");
 
 // Creates a masterCurrencyCollection collection in the database
 var masterCurrencyCollection = mongoose.model("masterCurrencyCollection", masterCurrencySchema);
+module.exports.masterCurrency = {
+  masterCurrencySchema
+};
 
 // Saves the masterCurrencyCollection object to the database and returns a Promise
 // The assumption here is that the Object is valid
@@ -43,7 +46,7 @@ module.exports.save = (object) => {
 // if the collectiom has no records it Returns
 // a promise with a result of  empty object i.e. {}
 module.exports.findAll = (limit) => {
-  if(limit < 1) {
+  if (limit < 1) {
     return masterCurrencyCollection.find({});
   }
   return masterCurrencyCollection.find({}).limit(limit);

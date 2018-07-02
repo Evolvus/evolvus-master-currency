@@ -22,7 +22,7 @@ var docketObject = {
   level: ""
 };
 
-module.exports.user = {
+module.exports.masterCurrency = {
   masterCurrencySchema,
   masterCurrencyDBSchema
 };
